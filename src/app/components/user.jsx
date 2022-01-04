@@ -5,7 +5,7 @@ import React, { useState } from "react"
 function User({ user, onDelete }) {
     const [bookmark, setBookmark] = useState(0)
     const onToggleBookMark = (id) => {
-        console.log(id)
+        // eslint-disable-next-line no-unused-expressions
         bookmark ? (
             <Bookmark status={setBookmark(0)} />
         ) : (
