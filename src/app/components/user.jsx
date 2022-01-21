@@ -1,31 +1,30 @@
-import Qualities from "./qualities"
+import Quality from "./qualities"
 import Bookmark from "./bookmark"
 import React, { useState } from "react"
 
-function User({ user, onDelete }) {
-    const [bookmark, setBookmark] = useState(0)
-    const onToggleBookMark = (id) => {
-        // eslint-disable-next-line no-unused-expressions
-        bookmark ? (
-            <Bookmark status={setBookmark(0)} />
-        ) : (
-            <Bookmark status={setBookmark(1)} />
-        )
-    }
+function User({
+    _id,
+    name,
+    profession,
+    qualities,
+    completedMeetings,
+    rate,
+    ...rest
+}) {
     return (
         <>
             <tr>
-                <td>{user.name}</td>
+                <td>{name}</td>
                 <td>
-                    <Qualities qualities={user.qualities} />
+                    <Quality qualities={qualities} />
                 </td>
-                <td>{user.profession.name}</td>
-                <td>{user.completedMeetings}</td>
-                <td>{user.rate}/5</td>
+                <td>{profession.name}</td>
+                <td>{completedMeetings}</td>
+                <td>{rate}/5</td>
                 <td>
                     <button
                         onClick={() => {
-                            onDelete(user._id)
+                            rest.onDelete(_id)
                         }}
                         className="btn bg-danger"
                     >
@@ -35,7 +34,7 @@ function User({ user, onDelete }) {
                 <td>
                     <Bookmark
                         status={bookmark}
-                        onClick={() => onToggleBookMark(user._id)}
+                        onClick={() => onToggleBookMark(_id)}
                     />
                 </td>
             </tr>

@@ -1,14 +1,14 @@
 import React from "react"
-
-// <Bookmark onChange={handleChange} condition={condition(false)} />
-const Bookmark = ({ status, ...rest }) => {
+import PropTypes from "prop-types"
+const BookMark = ({ status, ...rest }) => {
     return (
         <button {...rest}>
-            <i className={"bi bi-bookmark" + (status ? "-fill" : "")}></i>
+            <i className={"bi bi-bookmark" + (status ? "-heart-fill" : "")}></i>
         </button>
     )
 }
+BookMark.propTypes = {
+    status: PropTypes.bool
+}
 
-export default Bookmark
-
-// const bookmark = <i className="bi bi-bookmark"></i>
+export default BookMark

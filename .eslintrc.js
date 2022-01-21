@@ -3,11 +3,7 @@ module.exports = {
         browser: true,
         es2021: true
     },
-    extends: [
-        "plugin:react/recommended",
-        "standard",
-        "plugin:react/jsx-runtime"
-    ],
+    extends: ["plugin:react/recommended", "standard"],
     parserOptions: {
         ecmaFeatures: {
             jsx: true
@@ -18,7 +14,7 @@ module.exports = {
     plugins: ["react"],
     rules: {
         semi: [2, "never"],
-        indent: ["error", 4],
+        indent: [0, 4],
         "space-before-function-paren": [
             "error",
             { anonymous: "always", named: "never" }
@@ -29,10 +25,6 @@ module.exports = {
             {
                 allowTemplateLiterals: true
             }
-        ],
-        "multiline-ternary": ["error", "never"],
-        "react/prop-types": 0,
-        "react/react-in-jsx-scope": 0,
-        "no-unused-vars": 0
+        ]
     }
 }
